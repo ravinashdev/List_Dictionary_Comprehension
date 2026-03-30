@@ -1,7 +1,7 @@
 # Dictionary Comprehension
 # From a list
 # new_dictionary = { new_key:new_value for item in iterable}
-from operator import indexOf
+import pandas as pd
 
 nato_alphabet = ["Alfa", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "India", "Juliett", "Kilo", "Lima", "Mike", "November", "Oscar", "Papa", "Quebec", "Romeo", "Sierra", "Tango", "Uniform", "Victor", "Whiskey", "Xray", "Yankee", "Zulu"]
 nato_alphabet_dictionary = {item[0]:item for item in nato_alphabet}
@@ -39,3 +39,18 @@ def c_to_f(c):
     return round(fahrenheit,1)
 weather_f = {key:c_to_f(value) for (key, value) in weather_c.items()}
 print("weather_f:",weather_f)
+
+# DataFrames with panda
+student_dictionary = {
+    "student": ["Ryan", "Aleks", "Brandon", "Danial"],
+    "scores": [100, 99, 98, 97]
+}
+student_dataframe = pd.DataFrame(student_dictionary)
+print("student_dataframe:",student_dataframe)
+# Pandas built in iterrows() to loop through rows of data
+for (index, row) in student_dataframe.iterrows():
+    print("row:",row)
+    print("index:",index)
+    print("student:", row["student"])
+    print("scores:",row["scores"])
+
